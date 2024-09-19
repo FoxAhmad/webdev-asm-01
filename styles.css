@@ -1,0 +1,302 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html[lang="ar"], html[lang="ur"] {
+    direction: rtl;
+    text-align: right;
+}
+
+html[lang="en"], html[lang="fr"] {
+    direction: ltr;
+    text-align: left;
+}
+
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #f0f0f0; /* Light text for contrast */
+    background-color: #1c1c1c; /* Dark gray background */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center content */
+    padding: 10px;
+}
+
+/* Language Button at the Top */
+button {
+    background: linear-gradient(90deg, #008080, #00b140); /* Teal to Green Gradient */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #00b140, #00e0e0); /* Bright teal on hover */
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation bar */
+#navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /* background-color: #2b2b2b;*/ /* Dark gray for navbar background */
+    width: 100%;
+    padding: 5px 30px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+#navbar li {
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 10px 10px;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 13px 60px; /* Padding for navbar links */
+    font-size: 16px;
+    border-radius: 30px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Navbar hover with Gradient Transition */
+#navbar a:hover {
+    background: linear-gradient(90deg, #00b140, #00b3b3); /* Smooth green to teal gradient */
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Navbar */
+#menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+}
+
+@media(max-width: 768px) {
+    #navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #2b2b2b;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px;
+        z-index: 1;
+    }
+
+    #navbar ul.active {
+        display: flex;
+    }
+
+    #menu-icon {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    #navbar ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Container for central alignment and margins */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2b2b2b; /* Slightly lighter dark gray background for content */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    text-align: center; /* Center text within the container */
+}
+
+/* Gradient Background for Header */
+header {
+    background: linear-gradient(90deg, #008080, #00b140); /* Teal to Green Gradient */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Main Content Sections */
+section {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #333; /* Slightly lighter dark gray */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Headers */
+h1, h2, h3 {
+    color: #00e0e0; /* Bright teal for headings */
+    margin-bottom: 15px;
+}
+
+/* Unordered List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #3c3c3c; /* Slightly lighter gray for contrast */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    color: #f0f0f0;
+}
+
+/* Responsive Video */
+video {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Responsive Grid for Projects & Skills */
+#projects ul, #skills-list ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media(min-width: 768px) {
+    #projects ul, #skills-list ul {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+}
+
+@media(min-width: 1024px) {
+    #projects ul, #skills-list ul {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for desktops */
+    }
+}
+
+/* Social Media Section Styling */
+#social-media-posts {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: left;
+    color: #f0f0f0;
+}
+
+/* Post Card Styling */
+.post-card {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Post Header (Profile Info) */
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.post-info p {
+    margin: 0;
+    color: #ddd;
+}
+
+/* Post Body */
+.post-body {
+    margin-bottom: 15px;
+}
+
+.post-body p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/* Post Footer (Interactions) */
+.post-footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+.post-interactions {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.post-interactions button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.post-interactions button:hover {
+    background-color: #00b140; /* Hover color for interactions */
+}
+
+.post-stats {
+    color: #ccc;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #008080, #00b140); /* Teal to green gradient */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
