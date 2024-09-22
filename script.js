@@ -1,5 +1,5 @@
-const menuIcon = document.getElementById('menu-icon');
-const navbar = document.getElementById('navbar');
+/*const menuIcon = document.getElementById('menu-icon');
+const navbar = document.getElementById('navbar ul');
 
 menuIcon.addEventListener('click', () => {
     navbar.classList.toggle('active');
@@ -94,3 +94,53 @@ menuIcon.addEventListener('click', () => {
     document.getElementById('lang-fr').addEventListener('click', function() {
         changeLanguage('fr');
     });
+*/
+
+
+// Select the menu icon and navbar links
+const menuIcon = document.getElementById('menu-icon');
+const navbarLinks = document.querySelector('#navbar ul');
+
+// Toggle the 'active' class on click
+menuIcon.addEventListener('click', function() {
+    navbarLinks.classList.toggle('active');
+    
+    // Optional: Change the menu icon appearance when the menu is open
+    document.body.classList.toggle('menu-open');
+});
+
+ 
+// Load translations dynamically from JSON file
+fetch('translations.json')
+  .then(response => response.json())
+  .then(translations => {
+    // Event listeners for the buttons
+    document.getElementById('lang-en').addEventListener('click', function() {
+        changeLanguage('en', translations);
+    });
+    document.getElementById('lang-ur').addEventListener('click', function() {
+        changeLanguage('ur', translations);
+    });
+    document.getElementById('lang-ar').addEventListener('click', function() {
+        changeLanguage('ar', translations);
+    });
+    document.getElementById('lang-fr').addEventListener('click', function() {
+        changeLanguage('fr', translations);
+    });
+  })
+  .catch(error => console.error('Error loading translations:', error));
+
+// Function to change the language
+function changeLanguage(lang, translations) {
+    document.getElementById('greeting').textContent = translations[lang].greeting;
+    document.getElementById('aboutMe').textContent = translations[lang].aboutMe;
+    document.getElementById('interest').textContent = translations[lang].interest;
+    document.getElementById('hobbies').textContent = translations[lang].hobbies;
+    document.getElementById('growth').textContent = translations[lang].growth;
+    document.getElementById('projectsTitle').textContent = translations[lang].projectsTitle;
+    document.getElementById('skillsTitle').textContent = translations[lang].skillsTitle;
+    document.getElementById('awardsTitle').textContent = translations[lang].awardsTitle;
+    document.getElementById('educationTitle').textContent = translations[lang].educationTitle;
+    document.getElementById('videoTitle').textContent = translations[lang].videoTitle;
+    document.getElementById('socialMediaTitle').textContent = translations[lang].socialMediaTitle;
+}
